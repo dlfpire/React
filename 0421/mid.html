@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head></head>
+    <body>
+        <p><span>A</span></p>
+        <ul>
+            <li>10</li>
+            <li>20<span id="span">KS</span></li>
+        </ul>
+    </body>
+
+    <script>
+        let span = document.getElementById("span");
+        let str1 = document.createElement("h1");
+        str1.innerText = span.parentElement.innerHTML.split("<")[0];
+        let str2 = span.innerHTML + span.parentElement.innerHTML.split("<")[0];
+        let str3 = span.parentElement.parentElement.firstElementChild.innerHTML;
+
+        var body = document.querySelector("body");
+        body.appendChild(str1);
+    </script>
+</html>

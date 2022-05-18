@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Add Remove</title>
+    </head>
+
+    <body>
+        <button>Remove</button>
+        <p> This is p.</p>
+    </body>
+    
+    <script>
+        const body = document.querySelector("body")
+        const b = document.querySelector("button")
+        const p = document.querySelector("p")
+        p.style.color = "red"
+        b.onclick = () => {
+            if(b.innerHTML==="Remove"){
+                body.removeChild(p)
+                b.innerHTML = "Restore"
+            }
+            else {
+                body.appendChild(p)
+                b.innerHTML = "Remove"
+            }
+        }
+        
+    </script>
+</html>

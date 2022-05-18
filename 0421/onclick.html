@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+    </head>
+    <body>
+        <h1>DOM 객체에 프로퍼티 추가</h1>
+        <h2>강의 슬라이드 ch08.pptx 예제 8-1 참조</h2>
+        <p id="demo">나를 클릭하세요</p>
+
+        <script>
+            function handleOnclick(p) {
+                p.innerHTML = "클릭되었습니다."
+                p.style.color = "red"
+            }
+
+            let p = document.getElementById('demo')
+//  - addEventListener 내에서 핸들러를 직접 구현
+            // p.addEventListener("click", function(){
+            //     this.innerHTML="클릭되었습니다."
+            // })
+//  - addEventListener 내에서 핸들러를 호출
+            // p.addEventListener("click",()=>handleOnclick(p))
+//  - 객체에 onclick 프로퍼티를 추가함
+            // p.onclick = function() {
+            //     this.innerHTML = "클릭되었습니다." 
+            //     this.style.color = "red"
+            // }
+//  - 객체에 onclick 프로퍼티의 함수를 화살표 함수로 표현 (this 대신 객체로 표현)
+            // p.onclick = () => {
+            //     p.innerHTML = "클릭되었습니다."
+            //     p.style.color = "red"
+            // }
+//  - 객체에 onclick 프로퍼티의 함수를 다른 함수를 호출하도록 함 (위의 2 번과 유사함)
+            p.onclick = () => {handleOnclick(p)}
+        </script>
+    </body>
+</html>
