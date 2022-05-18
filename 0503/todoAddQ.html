@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Document</title>
+</head>
+
+<script>
+  window.addEventListener("load", function () {
+    const ul = document.getElementById("ul");
+    const input = document.getElementById("input");
+    const btnAdd = document.getElementById("btn-add");
+    btnAdd.onclick = () => {
+      const li = document.createElement("li");
+      li.innerHTML = input.value;
+      ul.appendChild(li);
+      input.value = "";
+    }
+  })
+</script>
+
+<body>
+  <h3>Todo List</h3>
+  <ul id="ul"></ul>
+  <input id="input" type="text" value="" dir="rtl">
+  <button id="btn-add">Add</button>
+</body>
+</html>
+
+<!-- 
+ul-li 구조를 만듦. ul은 parent, li는 children.
+클릭할 때마다 새로운 li 엘리먼트를 만들고, input의 value로 부터
+들어오는 내용을 채워서 ul에 붙인다. 
+-->
+

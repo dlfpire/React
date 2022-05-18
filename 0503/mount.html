@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <head></head>
+    <body>
+        <h3>Comp1 is mounted</h3>
+        <h3>Comp2 is mounted</h3>
+        <button>Unmount Comp1</button>
+    </body>
+    <script>
+        const h3 = document.getElementsByTagName("h3")[0];
+        const body = document.querySelector("body");
+        const btn = document.querySelector("button");
+        btn.onclick = () => {
+            if(btn.innerHTML==="Unmount Comp1"){
+                btn.innerHTML = "Mount Comp1"
+                body.removeChild(h3);
+            }
+            else if(btn.innerHTML==="Mount Comp1"){
+                body.insertBefore(h3,body.firstChild);
+                btn.innerHTML = "Unmount Comp1"
+            }
+        }
+    </script>
+</html>

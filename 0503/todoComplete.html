@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Document</title>
+</head>
+
+<script>
+  window.addEventListener("load", function () {
+    const ul = document.getElementById("ul");
+    const input = document.getElementById("input");
+    const btnAdd = document.getElementById("btn-add");
+    const btnDel = document.getElementById("btn-delete");
+    const span = document.getElementById("span");
+    btnAdd.onclick = () => {
+      const li = document.createElement("li");
+      li.style.listStyle = "none";
+      li.innerHTML = '<input type="checkbox">' + input.value;
+      ul.appendChild(li);
+      input.value = "";
+      span.innerText = "Numbers : " + ul.childElementCount;
+    }
+    btnDel.onclick = () => {
+      let checkedNodes = [];
+      for(let li of ul.childNodes) {
+        if(li.firstChild.checked)
+          checkedNodes.push(li);
+      }
+      for(let node of checkedNodes){
+        node.remove();
+      }
+      span.innerText = "Numbers : " + ul.childElementCount;
+    }
+  })
+</script>
+
+<body>
+  <h3>Todo List</h3>
+  <ul id="ul"></ul>
+  <input id="input" type="text" value="" dir="rtl">
+  <button id="btn-add">Add</button>
+  <button id="btn-delete">Delete</button>
+  <br>
+  <sapn id="span">Numbers : 0</sapn>
+</body>
+</html>
+
+<!-- 
+ul-li 구조를 만듦. ul은 parent, li는 children.
+클릭할 때마다 새로운 li 엘리먼트를 만들고, input의 value로 부터
+들어오는 내용을 채워서 ul에 붙인다. 
+-->
+
